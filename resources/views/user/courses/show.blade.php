@@ -5,16 +5,14 @@
 <div class="py-4">
     <div class="row mb-4">
         <div class="col-12">
-            <h1 class="display-5 fw-bold">View Lessons</h1>
-            @if($course_lessons->count() > 0)
-                <p class="text-muted">{{ $course_lessons[0]->course->title }}</p>
-            @endif
+            <h1 class="display-5 fw-bold">{{ $course->title }}</h1>
+            <p class="text-muted">{{ $course->description }}</p>
         </div>
     </div>
 
     @if($course_lessons->count() > 0)
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-12 col-lg-8 mb-4 mb-lg-0">
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-body p-0">
                         <video id="videoPlayer" class="w-100 rounded" style="max-height: 400px; object-fit: contain;" controls>
@@ -31,9 +29,9 @@
                 </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-12 col-lg-4">
                 <div class="card shadow-sm border-0">
-                    <div class="card-header bg-white py-3">
+                    <div class="card-header py-3">
                         <h6 class="mb-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul me-1" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-8 11.5a.5.5 0 0 1 .5-.5H1a1.5 1.5 0 1 1 0-3H1a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5H1a1.5 1.5 0 1 1 0-3H1a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5H1a1.5 1.5 0 1 1 0-3H1a.5.5 0 0 1-.5-.5"/>

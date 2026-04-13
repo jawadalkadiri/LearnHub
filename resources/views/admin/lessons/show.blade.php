@@ -9,7 +9,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-12 col-lg-8 mb-4 mb-lg-0">
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-body p-0">
                     <video class="w-100 rounded" style="max-height: 400px; object-fit: contain;" controls>
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-12 col-lg-4">
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-body">
                     <h5 class="card-title text-muted mb-3">Lesson Details</h5>

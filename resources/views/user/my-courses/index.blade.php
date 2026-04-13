@@ -18,7 +18,7 @@
     @if($enrollments->count() > 0)
         <div class="row">
             @foreach($enrollments as $enrollment)
-                <div class="col-md-6 mb-4">
+                <div class="col-12 col-md-6 mb-4">
                     <div class="card h-100 shadow-sm border-0">
                         <div class="row g-0 h-100">
                             <div class="col-md-4">

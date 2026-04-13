@@ -17,7 +17,7 @@
 
     <div class="row">
         @foreach($courses as $course)
-            <div class="col-md-6 mb-4">
+            <div class="col-12 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="row g-0 h-100">
                         <div class="col-md-4">
@@ -41,10 +41,18 @@
 
                                 <div class="d-flex gap-2">
                                     <a href="{{ route('user.courses.show', $course->id) }}" class="btn btn-outline-primary btn-sm">View</a>
-                                    <form method="POST" action="{{ route('user.enrollments.store', $course->id) }}" class="d-inline">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success btn-sm">Enroll</button>
-                                    </form>
+                                    @if(auth()->user()->enrolledCourses->contains('id', $course->id))
+                                        <form method="POST" action="{{ route('user.enrollments.destroy', $course->id) }}" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">Unenroll</button>
+                                        </form>
+                                    @else
+                                        <form method="POST" action="{{ route('user.enrollments.store', $course->id) }}" class="d-inline">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success btn-sm">Enroll</button>
+                                        </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>

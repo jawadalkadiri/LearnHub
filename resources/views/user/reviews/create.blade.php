@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card shadow-sm border-0">
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.reviews.store', $course_id) }}">

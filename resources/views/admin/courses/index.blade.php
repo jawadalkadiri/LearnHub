@@ -25,7 +25,7 @@
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-hover align-middle mb-0">
-                    <thead class="table-light">
+                    <thead>
                         <tr>
                             <th scope="col" class="py-3">ID</th>
                             <th scope="col" class="py-3">Image</th>
@@ -40,8 +40,8 @@
                                 <td class="py-3">{{ $course->id }}</td>
                                 <td class="py-3">
                                     <img src="{{ asset('storage/' . $course->img_path) }}"
-                                        width="60" height="60"
-                                        style="object-fit: cover;" class="rounded">
+                                        class="rounded img-fluid"
+                                        style="width:60px; height:60px; object-fit:cover;">
                                 </td>
                                 <td class="py-3">{{ $course->title }}</td>
                                 <td class="py-3">{{ Str::limit($course->description, 50) }}</td>

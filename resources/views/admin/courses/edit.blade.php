@@ -40,7 +40,7 @@
                 <div class="mb-4">
                     <label for="img_path" class="form-label fw-semibold">Course Image</label>
                     <div class="mb-2">
-                        <img src="{{ asset('storage/' . $course->img_path) }}" alt="Current Image" class="rounded" style="max-width: 150px; max-height: 100px; object-fit: cover;">
+                        <img src="{{ asset('storage/' . $course->img_path) }}" alt="Current Image" class="img-fluid rounded" style="max-width: 150px; max-height: 100px; object-fit: cover;">
                     </div>
                     <input type="file" class="form-control @error('img_path') is-invalid @enderror" id="img_path" name="img_path" accept="image/*">
                     @error('img_path')

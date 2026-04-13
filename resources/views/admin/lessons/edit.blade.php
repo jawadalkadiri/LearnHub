@@ -41,7 +41,7 @@
                     <label for="video_path" class="form-label fw-semibold">Upload New Video</label>
                     @if($lesson->video_path)
                         <div class="mb-2">
-                            <video controls class="rounded" style="max-width: 300px; max-height: 200px;">
+                            <video controls class="w-100 rounded" style="max-height: 220px; object-fit: contain;">
                                 <source src="{{ asset('storage/' . $lesson->video_path) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>

@@ -8,25 +8,14 @@ use App\Models\CourseTeacher;
 
 class TeacherController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request, string $id)
     {
         $request->validate([
@@ -34,11 +23,11 @@ class TeacherController extends Controller
             'teacher_id.*' => 'exists:users,id',
         ]);
 
-        foreach($request->teacher_id as $teacher_id){
-        CourseTeacher::create([
-            'user_id' => $teacher_id,
-            'course_id' => $id
-        ]);
+        foreach ($request->teacher_id as $teacher_id) {
+            CourseTeacher::firstOrCreate([
+                'user_id' => $teacher_id,
+                'course_id' => $id,
+            ]);
         }
 
 
@@ -46,35 +35,19 @@ class TeacherController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
     }
 }

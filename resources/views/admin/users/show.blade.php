@@ -9,7 +9,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-12 col-md-6 mb-4 mb-md-0">
             <div class="card shadow-sm border-0">
                 <div class="card-body">
                     <h5 class="card-title text-muted mb-4">User Information</h5>
@@ -46,21 +46,30 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-12 col-md-6">
             <div class="card shadow-sm border-0">
                 <div class="card-body">
                     <h5 class="card-title text-muted mb-4">Enrolled Courses</h5>
 
-                    @if($user->courses && $user->courses->count() > 0)
+                    @if($user->enrolledCourses && $user->enrolledCourses->count() > 0)
                         <div class="list-group">
-                            @foreach($user->courses as $course)
-                                <a href="{{ route('admin.courses.show', $course->id) }}" class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-1">{{ $course->title }}</h6>
-                                        <small class="text-muted">View</small>
+                            @foreach($user->enrolledCourses as $course)
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1">{{ $course->title }}</h6>
+                                            <p class="mb-0 text-muted small">{{ Str::limit($course->description, 80) }}</p>
+                                        </div>
+                                        <div class="d-flex gap-1 ms-2">
+                                            <a href="{{ route('admin.courses.show', $course->id) }}" class="btn btn-outline-secondary btn-sm">View</a>
+                                            <form action="{{ route('admin.enrollments.destroy', [$user->id, $course->id]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Unenroll this user?')">Unenroll</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <p class="mb-1 text-muted small">{{ Str::limit($course->description, 80) }}</p>
-                                </a>
+                                </div>
                             @endforeach
                         </div>
                     @else

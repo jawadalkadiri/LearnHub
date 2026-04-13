@@ -1,0 +1,693 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--[if gte mso 9]>
+<xml>
+  <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+  </w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  @page {
+    size: A4;
+    margin: 2.5cm 2.5cm 2.5cm 2.5cm;
+    mso-header-margin: 1cm;
+    mso-footer-margin: 1cm;
+  }
+
+  body {
+    font-family: "Times New Roman", serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000000;
+  }
+
+  h1 {
+    font-family: "Times New Roman", serif;
+    font-size: 18pt;
+    font-weight: bold;
+    text-align: center;
+    color: #1a1a2e;
+    margin-bottom: 6pt;
+    mso-style-next: Normal;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-family: "Times New Roman", serif;
+    font-size: 14pt;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+    border-bottom: 1px solid #cccccc;
+    mso-style-next: Normal;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-family: "Times New Roman", serif;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 12pt;
+    margin-bottom: 4pt;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 8pt;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin-top: 4pt;
+    margin-bottom: 8pt;
+    padding-left: 20pt;
+  }
+
+  li {
+    margin-bottom: 3pt;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12pt;
+    font-size: 11pt;
+  }
+
+  th {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: 7pt 10pt;
+    text-align: left;
+    font-weight: bold;
+    border: 1pt solid #cccccc;
+  }
+
+  td {
+    padding: 6pt 10pt;
+    border: 1pt solid #cccccc;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f5f5f5;
+  }
+
+  .cover {
+    text-align: center;
+    margin-top: 80pt;
+    margin-bottom: 80pt;
+    page-break-after: always;
+  }
+
+  .cover h1 {
+    font-size: 24pt;
+    margin-bottom: 12pt;
+  }
+
+  .cover p {
+    text-align: center;
+    font-size: 12pt;
+    color: #555555;
+    margin-bottom: 6pt;
+  }
+
+  .cover .subtitle {
+    font-size: 14pt;
+    color: #333333;
+    margin-bottom: 40pt;
+  }
+
+  .section-note {
+    background-color: #f0f4ff;
+    border-left: 3pt solid #4c6ef5;
+    padding: 6pt 10pt;
+    margin-bottom: 10pt;
+    font-size: 11pt;
+    color: #333;
+  }
+
+  .toc {
+    margin-bottom: 20pt;
+    page-break-after: always;
+  }
+
+  .toc h2 {
+    border-bottom: none;
+  }
+
+  .toc-item {
+    display: block;
+    margin-bottom: 5pt;
+    font-size: 11pt;
+  }
+
+  .badge {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    font-size: 10pt;
+    font-weight: bold;
+  }
+
+  .badge-new {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    font-size: 10pt;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER PAGE ══════════════════ -->
+<div class="cover">
+  <p style="font-size:11pt; color:#888; margin-bottom:30pt;">Learning Management System</p>
+  <h1>LearnHub</h1>
+  <p class="subtitle">Project Technical Report</p>
+  <br><br>
+  <p><strong>Framework:</strong> Laravel 11 (PHP)</p>
+  <p><strong>Frontend:</strong> Bootstrap 5 · Blade Templating · Tailwind CSS (Auth)</p>
+  <p><strong>Database:</strong> MySQL via Eloquent ORM</p>
+  <p><strong>Report Date:</strong> April 2026</p>
+  <br><br>
+  <p style="color:#888; font-size:10pt;">This report reflects the current completed state of the LearnHub LMS project.</p>
+</div>
+
+<!-- ══════════════════ TABLE OF CONTENTS ══════════════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <span class="toc-item">1. Introduction .............................................................. 3</span>
+  <span class="toc-item">2. Technology Stack ........................................................ 3</span>
+  <span class="toc-item">3. Database Design and Tables ......................................... 4</span>
+  <span class="toc-item">4. Model Relationships .................................................... 5</span>
+  <span class="toc-item">5. Authentication &amp; Security .......................................... 6</span>
+  <span class="toc-item">6. System Features by Role ................................................ 7</span>
+  <span class="toc-item">7. Controllers Overview ................................................... 8</span>
+  <span class="toc-item">8. Pages and Views ....................................................... 9</span>
+  <span class="toc-item">9. UI Design System ..................................................... 10</span>
+  <span class="toc-item">10. Database Seeder ....................................................... 11</span>
+  <span class="toc-item">11. Current Project Status ................................................ 12</span>
+  <span class="toc-item">12. Conclusion ............................................................... 12</span>
+</div>
+
+<!-- ══════════════════ SECTION 1 ══════════════════ -->
+<h2>1. Introduction</h2>
+<p>
+  LearnHub is a full-featured, web-based Learning Management System (LMS) built with the Laravel 11 framework.
+  The platform is designed to support three distinct user roles — <strong>administrators</strong>, <strong>teachers</strong>,
+  and <strong>students</strong> — each with a tailored experience and permission set.
+</p>
+<p>
+  Students can browse the course catalog, enroll in courses, access lesson content, and submit reviews.
+  Teachers are assigned to courses by administrators. Administrators have full control over the platform
+  through a dedicated management panel, including the ability to manage courses, lessons, users, enrollments,
+  teacher assignments, and notifications.
+</p>
+<p>
+  The system enforces email verification for all registered users before granting access to protected
+  functionality, and maintains a clean separation between the public-facing guest experience and the
+  authenticated user experience.
+</p>
+
+<!-- ══════════════════ SECTION 2 ══════════════════ -->
+<h2>2. Technology Stack</h2>
+
+<table>
+  <tr>
+    <th>Layer</th>
+    <th>Technology</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <td><strong>Backend Framework</strong></td>
+    <td>Laravel 11</td>
+    <td>MVC architecture, Eloquent ORM, Blade templating, middleware</td>
+  </tr>
+  <tr>
+    <td><strong>Language</strong></td>
+    <td>PHP 8.2+</td>
+    <td>Typed properties, match expressions, named arguments</td>
+  </tr>
+  <tr>
+    <td><strong>Database</strong></td>
+    <td>MySQL</td>
+    <td>Accessed via Laravel migrations and Eloquent ORM</td>
+  </tr>
+  <tr>
+    <td><strong>Admin / User UI</strong></td>
+    <td>Bootstrap 5.3</td>
+    <td>Dark theme, custom CSS variables, responsive grid</td>
+  </tr>
+  <tr>
+    <td><strong>Auth UI</strong></td>
+    <td>Tailwind CSS + Vite</td>
+    <td>Custom split-panel design with inline styles</td>
+  </tr>
+  <tr>
+    <td><strong>Fonts</strong></td>
+    <td>Figtree (Google / Bunny)</td>
+    <td>Used across authentication pages</td>
+  </tr>
+  <tr>
+    <td><strong>Local Server</strong></td>
+    <td>XAMPP (Apache + MySQL)</td>
+    <td>Development environment on Windows</td>
+  </tr>
+</table>
+
+<!-- ══════════════════ SECTION 3 ══════════════════ -->
+<h2>3. Database Design and Tables</h2>
+<p>The database consists of six core tables covering users, course content, enrollments, teacher assignments, and reviews.</p>
+
+<h3>3.1 Users Table</h3>
+<p>Stores all platform users. The <code>role</code> column differentiates between admins, teachers, and students.</p>
+<table>
+  <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>BIGINT (PK)</td><td>Auto-incrementing primary key</td></tr>
+  <tr><td>name</td><td>VARCHAR(255)</td><td>User's full name</td></tr>
+  <tr><td>email</td><td>VARCHAR(255)</td><td>Unique email address</td></tr>
+  <tr><td>password</td><td>VARCHAR(255)</td><td>Bcrypt-hashed password</td></tr>
+  <tr><td>role</td><td>VARCHAR(50)</td><td>Values: admin, teacher, user</td></tr>
+  <tr><td>email_verified_at</td><td>TIMESTAMP</td><td>NULL until email is verified</td></tr>
+  <tr><td>remember_token</td><td>VARCHAR(100)</td><td>Used for "remember me" sessions</td></tr>
+  <tr><td>created_at / updated_at</td><td>TIMESTAMP</td><td>Laravel timestamps</td></tr>
+</table>
+
+<h3>3.2 Courses Table</h3>
+<table>
+  <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>BIGINT (PK)</td><td>Primary key</td></tr>
+  <tr><td>title</td><td>VARCHAR(255)</td><td>Course title</td></tr>
+  <tr><td>description</td><td>TEXT</td><td>Detailed course description</td></tr>
+  <tr><td>img_path</td><td>VARCHAR(255)</td><td>Path to the course thumbnail image</td></tr>
+  <tr><td>created_at / updated_at</td><td>TIMESTAMP</td><td>Laravel timestamps</td></tr>
+</table>
+
+<h3>3.3 Lessons Table</h3>
+<table>
+  <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>BIGINT (PK)</td><td>Primary key</td></tr>
+  <tr><td>course_id</td><td>BIGINT (FK)</td><td>References courses.id</td></tr>
+  <tr><td>title</td><td>VARCHAR(255)</td><td>Lesson title</td></tr>
+  <tr><td>description</td><td>TEXT</td><td>Lesson summary or objectives</td></tr>
+  <tr><td>content</td><td>TEXT</td><td>Full lesson text content</td></tr>
+  <tr><td>video_path</td><td>VARCHAR(255)</td><td>Path or URL to lesson video</td></tr>
+  <tr><td>created_at / updated_at</td><td>TIMESTAMP</td><td>Laravel timestamps</td></tr>
+</table>
+
+<h3>3.4 Enrollments Table (Pivot)</h3>
+<table>
+  <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>BIGINT (PK)</td><td>Primary key</td></tr>
+  <tr><td>user_id</td><td>BIGINT (FK)</td><td>References users.id (student)</td></tr>
+  <tr><td>course_id</td><td>BIGINT (FK)</td><td>References courses.id</td></tr>
+  <tr><td>created_at / updated_at</td><td>TIMESTAMP</td><td>Laravel timestamps</td></tr>
+</table>
+
+<h3>3.5 Course_Teacher Table (Pivot)</h3>
+<table>
+  <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>BIGINT (PK)</td><td>Primary key</td></tr>
+  <tr><td>user_id</td><td>BIGINT (FK)</td><td>References users.id (teacher)</td></tr>
+  <tr><td>course_id</td><td>BIGINT (FK)</td><td>References courses.id</td></tr>
+</table>
+
+<h3>3.6 Reviews Table</h3>
+<table>
+  <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>BIGINT (PK)</td><td>Primary key</td></tr>
+  <tr><td>course_id</td><td>BIGINT (FK)</td><td>References courses.id</td></tr>
+  <tr><td>user_id</td><td>BIGINT (FK)</td><td>References users.id (reviewer)</td></tr>
+  <tr><td>rating</td><td>TINYINT</td><td>Numeric rating (e.g. 1–5)</td></tr>
+  <tr><td>comment</td><td>TEXT</td><td>Written review text</td></tr>
+  <tr><td>created_at / updated_at</td><td>TIMESTAMP</td><td>Laravel timestamps</td></tr>
+</table>
+
+<!-- ══════════════════ SECTION 4 ══════════════════ -->
+<h2>4. Model Relationships</h2>
+<p>All relationships are implemented using Laravel Eloquent ORM.</p>
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Relationship</th>
+    <th>Target</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td>enrolledCourses()</td>
+    <td>Course</td>
+    <td>Many-to-Many via <em>enrollments</em></td>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td>teachingCourses()</td>
+    <td>Course</td>
+    <td>Many-to-Many via <em>course_teacher</em></td>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td>reviews()</td>
+    <td>Review</td>
+    <td>Has Many</td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td>lessons()</td>
+    <td>Lesson</td>
+    <td>Has Many</td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td>enrolledBy()</td>
+    <td>User</td>
+    <td>Many-to-Many via <em>enrollments</em></td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td>teachedBy()</td>
+    <td>User</td>
+    <td>Many-to-Many via <em>course_teacher</em></td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td>reviews()</td>
+    <td>Review</td>
+    <td>Has Many</td>
+  </tr>
+  <tr>
+    <td>Lesson</td>
+    <td>course()</td>
+    <td>Course</td>
+    <td>Belongs To</td>
+  </tr>
+  <tr>
+    <td>Review</td>
+    <td>course()</td>
+    <td>Course</td>
+    <td>Belongs To</td>
+  </tr>
+  <tr>
+    <td>Review</td>
+    <td>user()</td>
+    <td>User</td>
+    <td>Belongs To</td>
+  </tr>
+</table>
+
+<!-- ══════════════════ SECTION 5 ══════════════════ -->
+<h2>5. Authentication &amp; Security</h2>
+
+<h3>5.1 Registration Flow</h3>
+<p>
+  When a new user completes the registration form, the system creates their account, logs them in
+  automatically, and immediately redirects them to the <strong>email verification page</strong>.
+  Access to all protected routes is blocked until the email is confirmed.
+</p>
+
+<h3>5.2 Login Flow</h3>
+<p>
+  Upon successful login, the system checks whether the user's email is verified:
+</p>
+<ul>
+  <li>If <strong>not verified</strong> → redirected to the email verification notice page.</li>
+  <li>If <strong>verified and role is admin</strong> → redirected to the Admin Courses dashboard.</li>
+  <li>If <strong>verified and role is user</strong> → redirected to the Home page.</li>
+</ul>
+
+<h3>5.3 Email Verification</h3>
+<p>
+  The <code>User</code> model implements the <code>MustVerifyEmail</code> interface. All admin, user,
+  and profile routes are protected with the <code>verified</code> middleware. Unverified users can
+  only access the verification notice page and request a resend of the verification email.
+  After clicking the verification link, users are redirected to the home page.
+</p>
+
+<h3>5.4 Middleware</h3>
+<table>
+  <tr><th>Middleware</th><th>Purpose</th><th>Applied To</th></tr>
+  <tr><td>auth</td><td>Require authenticated session</td><td>All protected routes</td></tr>
+  <tr><td>verified</td><td>Require confirmed email address</td><td>Admin, user, and profile routes</td></tr>
+  <tr><td>admin</td><td>Restrict access to admin role only</td><td>All /admin/* routes</td></tr>
+  <tr><td>guest</td><td>Redirect authenticated users away from auth pages</td><td>Login, register, password reset</td></tr>
+</table>
+
+<h3>5.5 Password Management</h3>
+<p>
+  Users can update their password from the profile settings page. The system validates the current
+  password before accepting a new one. Password reset via email is also available from the login page.
+  All passwords are hashed using bcrypt via Laravel's built-in hashing facilities.
+</p>
+
+<!-- ══════════════════ SECTION 6 ══════════════════ -->
+<h2>6. System Features by Role</h2>
+
+<h3>6.1 Guest (Unauthenticated)</h3>
+<ul>
+  <li>Browse the home page freely</li>
+  <li>Access the login and registration pages</li>
+  <li>Request a password reset link</li>
+</ul>
+
+<h3>6.2 Student (Authenticated + Verified)</h3>
+<ul>
+  <li>Browse and search the full course catalog</li>
+  <li>View course detail pages including lessons and reviews</li>
+  <li>Enroll in and withdraw from courses</li>
+  <li>Access lesson content for enrolled courses</li>
+  <li>Submit and manage course reviews (rating + comment)</li>
+  <li>View personal enrollment history ("My Courses")</li>
+  <li>Update profile information (name, email)</li>
+  <li>Change account password</li>
+  <li>Delete account</li>
+</ul>
+
+<h3>6.3 Administrator (Authenticated + Verified + Admin Role)</h3>
+<ul>
+  <li>Access the admin dashboard with platform statistics (total courses, users, lessons, enrollments)</li>
+  <li>Full CRUD management of courses (create, view, edit, delete)</li>
+  <li>Full CRUD management of lessons</li>
+  <li>Full CRUD management of users</li>
+  <li>Manage student enrollments per course</li>
+  <li>Assign and remove teachers from courses</li>
+  <li>Search functionality across courses, lessons, and users</li>
+  <li>View and manage admin notifications</li>
+  <li>Update admin profile information and password</li>
+</ul>
+
+<!-- ══════════════════ SECTION 7 ══════════════════ -->
+<h2>7. Controllers Overview</h2>
+
+<h3>7.1 Admin Controllers</h3>
+<table>
+  <tr><th>Controller</th><th>Responsibility</th></tr>
+  <tr><td>Admin\DashboardController</td><td>Platform statistics and admin home view</td></tr>
+  <tr><td>Admin\CourseController</td><td>CRUD for courses, search, image upload</td></tr>
+  <tr><td>Admin\LessonController</td><td>CRUD for lessons, search, video management</td></tr>
+  <tr><td>Admin\UserController</td><td>CRUD for users, role management, search</td></tr>
+  <tr><td>Admin\EnrollmentController</td><td>Assign and remove student enrollments</td></tr>
+  <tr><td>Admin\TeacherController</td><td>Assign teachers to courses</td></tr>
+  <tr><td>Admin\ProfileController</td><td>Admin profile view</td></tr>
+  <tr><td>Admin\NotificationController</td><td>View, mark-read, and manage notifications</td></tr>
+</table>
+
+<h3>7.2 User Controllers</h3>
+<table>
+  <tr><th>Controller</th><th>Responsibility</th></tr>
+  <tr><td>User\CourseController</td><td>Browse and search course catalog</td></tr>
+  <tr><td>User\EnrollmentController</td><td>Enroll, withdraw, and view enrolled courses</td></tr>
+  <tr><td>User\ReviewController</td><td>Create and submit course reviews</td></tr>
+  <tr><td>ProfileController</td><td>Edit profile info; role-aware redirect after save</td></tr>
+</table>
+
+<h3>7.3 Auth Controllers</h3>
+<table>
+  <tr><th>Controller</th><th>Responsibility</th></tr>
+  <tr><td>Auth\RegisteredUserController</td><td>Registration form + redirect to verify-email</td></tr>
+  <tr><td>Auth\AuthenticatedSessionController</td><td>Login + verification check + role-based redirect</td></tr>
+  <tr><td>Auth\VerifyEmailController</td><td>Handle email verification link + redirect to home</td></tr>
+  <tr><td>Auth\PasswordController</td><td>Update password from profile</td></tr>
+  <tr><td>Auth\PasswordResetLinkController</td><td>Send password reset email</td></tr>
+  <tr><td>Auth\NewPasswordController</td><td>Reset password via signed link</td></tr>
+</table>
+
+<!-- ══════════════════ SECTION 8 ══════════════════ -->
+<h2>8. Pages and Views</h2>
+
+<h3>8.1 Authentication Pages</h3>
+<table>
+  <tr><th>View</th><th>Route</th><th>Description</th></tr>
+  <tr><td>auth/login</td><td>/login</td><td>Split-panel login form with "Sign in" button</td></tr>
+  <tr><td>auth/register</td><td>/register</td><td>Split-panel registration form</td></tr>
+  <tr><td>auth/verify-email</td><td>/verify-email</td><td>Verification prompt with resend and logout</td></tr>
+  <tr><td>auth/forgot-password</td><td>/forgot-password</td><td>Password reset request form</td></tr>
+  <tr><td>auth/reset-password</td><td>/reset-password/{token}</td><td>New password form via signed link</td></tr>
+</table>
+
+<h3>8.2 Admin Pages</h3>
+<table>
+  <tr><th>View</th><th>Route</th><th>Description</th></tr>
+  <tr><td>admin/dashboard</td><td>/admin/dashboard</td><td>Stats cards: courses, users, lessons, enrollments</td></tr>
+  <tr><td>admin/courses/index</td><td>/admin/courses/index</td><td>Course list with search, edit, delete actions</td></tr>
+  <tr><td>admin/courses/create</td><td>/admin/courses/create</td><td>Create course form with image upload</td></tr>
+  <tr><td>admin/courses/edit</td><td>/admin/courses/edit/{id}</td><td>Edit course details</td></tr>
+  <tr><td>admin/courses/show</td><td>/admin/courses/{id}</td><td>Course detail: lessons, enrolled students, teachers</td></tr>
+  <tr><td>admin/lessons/index</td><td>/admin/lessons/index</td><td>All lessons with course context</td></tr>
+  <tr><td>admin/lessons/create</td><td>/admin/lessons/create</td><td>Create lesson with video upload</td></tr>
+  <tr><td>admin/lessons/edit</td><td>/admin/lessons/edit/{id}</td><td>Edit lesson content</td></tr>
+  <tr><td>admin/lessons/show</td><td>/admin/lessons/{id}</td><td>Lesson detail view</td></tr>
+  <tr><td>admin/users/index</td><td>/admin/users/index</td><td>User list with role filter and search</td></tr>
+  <tr><td>admin/users/show</td><td>/admin/users/{id}</td><td>User detail with enrollments</td></tr>
+  <tr><td>admin/profile/edit</td><td>/admin/profile</td><td>Admin profile: info, password, delete account</td></tr>
+  <tr><td>admin/notifications/index</td><td>/admin/notifications/index</td><td>Notification list with mark-read functionality</td></tr>
+</table>
+
+<h3>8.3 User Pages</h3>
+<table>
+  <tr><th>View</th><th>Route</th><th>Description</th></tr>
+  <tr><td>user/courses/index</td><td>/user/courses/index</td><td>Course catalog with search</td></tr>
+  <tr><td>user/courses/show</td><td>/user/courses/{id}</td><td>Course detail: lessons, teacher, reviews, enroll button</td></tr>
+  <tr><td>user/my-courses/index</td><td>/user/enrolled-courses/index</td><td>List of courses the student is enrolled in</td></tr>
+  <tr><td>user/reviews/create</td><td>/user/reviews/create/{course_id}</td><td>Review submission form (rating + comment)</td></tr>
+  <tr><td>user/profile/edit</td><td>/profile</td><td>User profile: info, password, delete account</td></tr>
+</table>
+
+<!-- ══════════════════ SECTION 9 ══════════════════ -->
+<h2>9. UI Design System</h2>
+
+<h3>9.1 Color Palette</h3>
+<table>
+  <tr><th>Token</th><th>Hex Value</th><th>Usage</th></tr>
+  <tr><td>Page Background</td><td>#0f172a</td><td>Main body background across all pages</td></tr>
+  <tr><td>Card / Panel</td><td>#1e293b</td><td>Card backgrounds, navbars</td></tr>
+  <tr><td>Card Header</td><td>#253047</td><td>Table headers, card header sections</td></tr>
+  <tr><td>Admin Primary</td><td>#818cf8</td><td>Admin buttons, links, badges (indigo)</td></tr>
+  <tr><td>User Primary</td><td>#38bdf8</td><td>User-facing buttons, links (sky blue)</td></tr>
+  <tr><td>Auth Accent</td><td>#a5b4fc</td><td>Auth pages logo text, feature dots</td></tr>
+  <tr><td>Danger</td><td>#ef4444</td><td>Delete actions, error states</td></tr>
+  <tr><td>Success</td><td>#34d399</td><td>Success states, save confirmations</td></tr>
+  <tr><td>Muted Text</td><td>#94a3b8</td><td>Secondary text, placeholders, labels</td></tr>
+</table>
+
+<h3>9.2 Auth Page Layout</h3>
+<p>
+  The login and registration pages use a <strong>split-panel design</strong>:
+</p>
+<ul>
+  <li><strong>Left panel</strong> (visible on desktop ≥ 1024px): Dark indigo gradient background with the LearnHub logo, a headline, subline, and four platform feature bullet points. Decorative blurred circles add depth.</li>
+  <li><strong>Right panel</strong>: Dark <code>#0f172a</code> background with a raised <code>#1e293b</code> card containing the form. On mobile, the left panel is hidden and a compact logo appears above the card.</li>
+</ul>
+
+<h3>9.3 Profile Page Design</h3>
+<p>
+  Profile pages (shared between admin and user) are divided into three Bootstrap cards:
+</p>
+<ul>
+  <li><strong>Profile Information</strong> — Update name and email. Shows verification status and resend link if email is unverified.</li>
+  <li><strong>Update Password</strong> — Requires current password before accepting a new one.</li>
+  <li><strong>Delete Account</strong> — Triggers a Bootstrap modal requiring password confirmation before permanent deletion.</li>
+</ul>
+<p>
+  All form inputs are styled with a dark <code>#0f172a</code> background and subtle border, consistent with the overall dark theme.
+</p>
+
+<!-- ══════════════════ SECTION 10 ══════════════════ -->
+<h2>10. Database Seeder</h2>
+<p>
+  The <code>DatabaseSeeder</code> populates the database with realistic sample data for development and demonstration purposes.
+</p>
+
+<h3>10.1 Seeded Users</h3>
+<table>
+  <tr><th>Role</th><th>Count</th><th>Details</th></tr>
+  <tr><td>Admin</td><td>1</td><td>admin@learnhub.com</td></tr>
+  <tr><td>Teacher</td><td>3</td><td>Ahmed Hassan, Sara Ali, Omar Khaled</td></tr>
+  <tr><td>Student</td><td>6</td><td>Youssef Nabil, Nour Mohamed, Kareem Samir, Layla Ibrahim, Tarek Mostafa, Hana Adel</td></tr>
+</table>
+
+<h3>10.2 Seeded Courses</h3>
+<table>
+  <tr><th>#</th><th>Course Title</th><th>Teacher</th><th>Lessons</th></tr>
+  <tr><td>1</td><td>Complete Web Development Bootcamp</td><td>Ahmed Hassan</td><td>6</td></tr>
+  <tr><td>2</td><td>Laravel for Beginners</td><td>Ahmed Hassan</td><td>6</td></tr>
+  <tr><td>3</td><td>Python Programming Masterclass</td><td>Sara Ali</td><td>6</td></tr>
+  <tr><td>4</td><td>UI/UX Design Fundamentals</td><td>Sara Ali</td><td>5</td></tr>
+  <tr><td>5</td><td>Data Science with Python</td><td>Omar Khaled</td><td>6</td></tr>
+  <tr><td>6</td><td>Mobile App Development with Flutter</td><td>Omar Khaled</td><td>6</td></tr>
+</table>
+
+<h3>10.3 Seeded Reviews</h3>
+<p>
+  17 student reviews are seeded across all six courses, with ratings of 4 or 5 stars and detailed comments.
+  Each review is linked to a real enrolled student and the corresponding course.
+</p>
+
+<!-- ══════════════════ SECTION 11 ══════════════════ -->
+<h2>11. Current Project Status</h2>
+<table>
+  <tr><th>Area</th><th>Status</th></tr>
+  <tr><td>Database migrations and schema</td><td>&#10003; Complete</td></tr>
+  <tr><td>Eloquent models and relationships</td><td>&#10003; Complete</td></tr>
+  <tr><td>Database seeder with realistic data</td><td>&#10003; Complete</td></tr>
+  <tr><td>Admin middleware</td><td>&#10003; Complete</td></tr>
+  <tr><td>Email verification enforcement</td><td>&#10003; Complete</td></tr>
+  <tr><td>Role-based login redirects</td><td>&#10003; Complete</td></tr>
+  <tr><td>Admin panel — all CRUD controllers</td><td>&#10003; Complete</td></tr>
+  <tr><td>Admin panel — notifications system</td><td>&#10003; Complete</td></tr>
+  <tr><td>User panel — course browsing and enrollment</td><td>&#10003; Complete</td></tr>
+  <tr><td>User panel — reviews system</td><td>&#10003; Complete</td></tr>
+  <tr><td>Profile management (admin + user)</td><td>&#10003; Complete</td></tr>
+  <tr><td>Password reset via email</td><td>&#10003; Complete</td></tr>
+  <tr><td>Authentication UI (login/register redesign)</td><td>&#10003; Complete</td></tr>
+  <tr><td>Admin UI (Bootstrap dark theme)</td><td>&#10003; Complete</td></tr>
+  <tr><td>User UI (Bootstrap dark theme)</td><td>&#10003; Complete</td></tr>
+  <tr><td>All views implemented</td><td>&#10003; Complete</td></tr>
+</table>
+
+<!-- ══════════════════ SECTION 12 ══════════════════ -->
+<h2>12. Conclusion</h2>
+<p>
+  LearnHub is a fully functional Learning Management System that demonstrates a structured, professional
+  approach to building multi-role web applications with Laravel. The system successfully implements
+  all core LMS functionality: course management, lesson delivery, student enrollment, teacher assignment,
+  course reviews, and a comprehensive administration panel.
+</p>
+<p>
+  The platform enforces security best practices through role-based access control, email verification,
+  and bcrypt password hashing. The UI is consistent throughout, using a dark navy color scheme across
+  all authenticated pages, with a modern split-panel design for the authentication flow.
+</p>
+<p>
+  The project is currently in a complete and functional state. Potential future enhancements could include:
+</p>
+<ul>
+  <li>Video streaming integration for lesson content</li>
+  <li>Certificate generation upon course completion</li>
+  <li>Progress tracking per lesson</li>
+  <li>Real-time notifications using Laravel Echo and Pusher</li>
+  <li>Payment gateway integration for premium courses</li>
+  <li>Mobile application via a REST API layer</li>
+</ul>
+
+<br><br>
+<p style="text-align:center; color:#888; font-size:10pt; border-top:1pt solid #ccc; padding-top:10pt;">
+  LearnHub LMS — Technical Report &mdash; April 2026
+</p>
+
+</body>
+</html>

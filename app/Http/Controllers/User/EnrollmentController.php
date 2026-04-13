@@ -6,74 +6,62 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Enrollment;
+use App\Models\User;
+use App\Notifications\NewEnrollmentNotification;
 
 
 class EnrollmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $user = auth()->user();
         $enrollments = Enrollment::where('user_id', $user->id)->get();
-        // $courses = Course::all();
 
         return view('user.my-courses.index', compact('enrollments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request, $id)
     {
         $course_id = $id;
         $user = auth()->user();
         $user_id = $user->id;
 
-        Enrollment::create(['course_id'=>$course_id,'user_id'=>$user_id]);
+        $enrollment = Enrollment::firstOrCreate(['course_id' => $course_id, 'user_id' => $user_id]);
+
+        if ($enrollment->wasRecentlyCreated) {
+            $admins = User::where('role', 'admin')->get();
+            foreach ($admins as $admin) {
+                $admin->notify(new NewEnrollmentNotification($user, $enrollment->course));
+            }
+        }
 
         return redirect()->route('user.courses.index')->with('success', 'Enrolled successfully!');
 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $user = auth()->user();
+        Enrollment::where('user_id', $user->id)
+                  ->where('course_id', $id)
+                  ->delete();
+
+        return redirect()->route('user.courses.index')->with('success', 'Unenrolled successfully!');
     }
 }

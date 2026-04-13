@@ -47,13 +47,13 @@
     </div>
 
     <div class="card shadow-sm border-0">
-        <div class="card-header bg-white py-3">
+        <div class="card-header py-3">
             <h5 class="mb-0">Course Statistics</h5>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-hover mb-0">
-                    <thead class="table-light">
+                    <thead>
                         <tr>
                             <th scope="col" class="py-3">Course</th>
                             <th scope="col" class="py-3">Students</th>

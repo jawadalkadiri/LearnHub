@@ -77,7 +77,7 @@
 
     {{-- Add Enrollment --}}
     <div class="card shadow-sm border-0 mb-4">
-        <div class="card-header bg-white py-3">
+        <div class="card-header py-3">
             <h6 class="mb-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus me-1" viewBox="0 0 16 16">
                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s3 0 5-3c1.798 0 3.183 1.745 3.5 2.194.293.416.5.959.5 1.806s-.207 1.39-.5 1.806c-.317.45-1.702 2.194-3.5 2.194s-5-3-5-3"/>
@@ -90,7 +90,7 @@
             <form method="POST" action="{{ route('admin.enrollments.store', $course->id) }}">
                 @csrf
                 <div class="row g-2 align-items-center">
-                    <div class="col-md-10">
+                    <div class="col-12 col-md-10">
                         <select class="form-select" name="user_id[]" multiple size="5">
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}"
@@ -101,7 +101,7 @@
                         </select>
                         <div class="form-text">Hold Ctrl/Cmd to select multiple users</div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-12 col-md-2">
                         <button class="btn btn-primary w-100">Add Selected</button>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
 
     {{-- Add Teacher --}}
     <div class="card shadow-sm border-0">
-        <div class="card-header bg-white py-3">
+        <div class="card-header py-3">
             <h6 class="mb-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge me-1" viewBox="0 0 16 16">
                     <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM11 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 11 1zm-5.5 0A.5.5 0 0 0 5 1.5v1a.5.5 0 0 0 1 0v-1A.5.5 0 0 0 5.5 1zM3 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 1 0v-1A.5.5 0 0 0 3 1zM1.5 5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm11 0a.5.5 0 0 0 .5-.5h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .5-.5zM1 8a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 0-1h-1A.5.5 0 0 0 1 8zm13 0a.5.5 0 0 1 .5.5h-1a.5.5 0 0 1 0-1h1a.5.5 0 0 1 .5.5zM2.5 11a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zM12.5 11a.5.5 0 1 0 0 1h1a.5.5 0 0 0 0-1z"/>
@@ -124,7 +124,7 @@
             <form method="POST" action="{{ route('admin.teachers.store', $course->id) }}">
                 @csrf
                 <div class="row g-2 align-items-center">
-                    <div class="col-md-10">
+                    <div class="col-12 col-md-10">
                         <select class="form-select" name="teacher_id[]" multiple size="5">
                             @foreach($users->where('role', 'teacher') as $user)
                                 <option value="{{ $user->id }}"
@@ -135,7 +135,7 @@
                         </select>
                         <div class="form-text">Hold Ctrl/Cmd to select multiple teachers</div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-12 col-md-2">
                         <button class="btn btn-primary w-100">Add Selected</button>
                     </div>
                 </div>

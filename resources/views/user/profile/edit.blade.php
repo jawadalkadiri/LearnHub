@@ -10,9 +10,9 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-12 col-lg-8">
             <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-white py-3">
+                <div class="card-header py-3">
                     <h6 class="mb-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person me-1" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2.5 7a4.5 4.5 0 1 0-5 0z"/>
@@ -26,10 +26,10 @@
             </div>
 
             <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-white py-3">
+                <div class="card-header py-3">
                     <h6 class="mb-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key me-1" viewBox="0 0 16 16">
-                            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.146.146a.5.5 0 0 1-.708 0L12 9.207l-.146.146a.5.5 0 0 1-.708 0L11 9.207l-.146.146a.5.5 0 0 1-.708 0L10 9.207l-.146.146a.5.5 0 0 1-.708 0L9 9.207l-.146.146a.5.5 0 0 1-.708 0L8 9.207l-.146.146a.5.5 0 0 1-.708 0L7 9.207l-.146.146a.5.5 0 0 1-.708 0L6 9.207l-.146.146a.5.5 0 0 1-.708 0L5 9.207l-.146.146a.5.5 0 0 1-.708 0L4 9.207l-.146.146a.5.5 0 0 1-.708 0L3 9.207l-.146.146a.5.5 0 0 1-.708 0L2 9.207l-.146.146a.5.5 0 0 1-.708 0L1 9.207l-.146.146a.5.5 0 0 1-.708 0L0 9.207z"/>
+                            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.5a.5.5 0 0 1-.5-.5V9.207l-.646.647a.5.5 0 0 1-.707-.707L7.293 8.5H7.5A.5.5 0 0 1 8 9v.293l.854-.854A.5.5 0 0 1 9 8.5h5.293l.854-.854A.5.5 0 0 1 15.5 8h.5v.5a.5.5 0 0 1-.5.5zM4 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
                         </svg>
                         Update Password
                     </h6>
