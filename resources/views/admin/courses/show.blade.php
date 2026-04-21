@@ -17,6 +17,9 @@
             <div class="col-md-9">
                 <div class="card-body">
                     <h4 class="card-title">{{ $course->title }}</h4>
+                    @if($course->category)
+                        <span class="badge bg-secondary mb-2">{{ $course->category->name }}</span>
+                    @endif
                     <p class="card-text text-muted">{{ $course->description }}</p>
                     <div class="d-flex gap-2 mt-3">
                         <a href="{{ route('admin.courses.edit', $course->id) }}" class="btn btn-primary btn-sm">
@@ -93,8 +96,7 @@
                     <div class="col-12 col-md-10">
                         <select class="form-select" name="user_id[]" multiple size="5">
                             @foreach($users as $user)
-                                <option value="{{ $user->id }}"
-                                    {{ in_array($user->id, $course->enrolledBy->pluck('id')->toArray()) ? 'selected' : '' }}>
+                                <option value="{{ $user->id }}" {{ in_array($user->id, $course->enrolledBy->pluck('id')->toArray()) ? 'selected' : '' }}>
                                     {{ $user->name }} ({{ $user->email }})
                                 </option>
                             @endforeach
@@ -102,7 +104,7 @@
                         <div class="form-text">Hold Ctrl/Cmd to select multiple users</div>
                     </div>
                     <div class="col-12 col-md-2">
-                        <button class="btn btn-primary w-100">Add Selected</button>
+                        <button type="submit" class="btn btn-primary w-100">Add Selected</button>
                     </div>
                 </div>
             </form>
@@ -127,8 +129,7 @@
                     <div class="col-12 col-md-10">
                         <select class="form-select" name="teacher_id[]" multiple size="5">
                             @foreach($users->where('role', 'teacher') as $user)
-                                <option value="{{ $user->id }}"
-                                    {{ in_array($user->id, $course->teachedBy->pluck('id')->toArray()) ? 'selected' : '' }}>
+                                <option value="{{ $user->id }}" {{ in_array($user->id, $course->teachedBy->pluck('id')->toArray()) ? 'selected' : '' }}>
                                     {{ $user->name }}
                                 </option>
                             @endforeach
@@ -136,7 +137,7 @@
                         <div class="form-text">Hold Ctrl/Cmd to select multiple teachers</div>
                     </div>
                     <div class="col-12 col-md-2">
-                        <button class="btn btn-primary w-100">Add Selected</button>
+                        <button type="submit" class="btn btn-primary w-100">Add Selected</button>
                     </div>
                 </div>
             </form>

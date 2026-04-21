@@ -13,14 +13,14 @@ use App\Http\Controllers\User\CourseController as UserCourseController;
 use App\Http\Controllers\User\EnrollmentController as UserEnrollmentController;
 use App\Http\Controllers\User\ReviewController as UserReviewController;
 use App\Http\Controllers\Admin\NotificationController as AdminNotificationController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\User\HomeController;
 
 Route::get('/phpinfo', function () {
     return phpinfo();
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -76,6 +76,13 @@ Route::middleware('auth','admin','verified')->group(function () {
     Route::get('admin/notifications/index', [AdminNotificationController::class, 'index'])->name('admin.notifications.index');
     Route::put('admin/notifications/update/{id}', [AdminNotificationController::class, 'update'])->name('admin.notifications.update');
     Route::post('admin/notifications/read-all', [AdminNotificationController::class, 'markAllAsRead'])->name('admin.notifications.read-all');
+        // Category routes
+    Route::get('admin/categories/index', [AdminCategoryController::class, 'index'])->name('admin.categories.index');
+    Route::get('admin/categories/create', [AdminCategoryController::class, 'create'])->name('admin.categories.create');
+    Route::post('admin/categories/store', [AdminCategoryController::class, 'store'])->name('admin.categories.store');
+    Route::get('admin/categories/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin.categories.edit');
+    Route::put('admin/categories/update/{id}', [AdminCategoryController::class, 'update'])->name('admin.categories.update');
+    Route::delete('admin/categories/destroy/{id}', [AdminCategoryController::class, 'destroy'])->name('admin.categories.destroy');
 });
 
 Route::middleware('auth','verified')->group(function () {

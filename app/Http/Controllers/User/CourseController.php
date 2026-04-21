@@ -10,9 +10,12 @@ use App\Models\User;
 
 class CourseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::all();
+        $query = $request->input('search');
+        $courses = Course::where('title','LIKE',"%$query%")
+        ->orWhere('description','LIKE',"%$query%")
+        ->get();
 
         return view('user.courses.index', compact('courses'));
     }

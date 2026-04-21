@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\Http;
 
 
@@ -19,7 +20,8 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('admin.courses.create');
+        $categories = Category::all();
+        return view('admin.courses.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -28,6 +30,7 @@ class CourseController extends Controller
             'title' => 'required',
             'description' => 'required',
             'img_path' => 'nullable|image|extensions:jpg,jpeg,png,gif|max:5096',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
         if ($request->hasFile('img_path')) {
@@ -71,7 +74,8 @@ class CourseController extends Controller
     public function edit(string $id)
     {
         $course = Course::findorFail($id);
-        return view('admin.courses.edit',compact('course'));
+        $categories = Category::all();
+        return view('admin.courses.edit', compact('course', 'categories'));
     }
 
     public function update(Request $request, string $id)
@@ -80,6 +84,7 @@ class CourseController extends Controller
             'title' => 'required',
             'description' => 'required',
             'img_path' => 'nullable|image|extensions:jpg,jpeg,png,gif|max:5096',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
         if($request->hasFile('img_path')){
             $new_course['img_path'] = $request->file('img_path')->store('course_images','public');

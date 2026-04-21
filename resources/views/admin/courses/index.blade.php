@@ -30,6 +30,7 @@
                             <th scope="col" class="py-3">ID</th>
                             <th scope="col" class="py-3">Image</th>
                             <th scope="col" class="py-3">Title</th>
+                            <th scope="col" class="py-3">Category</th>
                             <th scope="col" class="py-3">Description</th>
                             <th scope="col" class="py-3">Actions</th>
                         </tr>
@@ -44,12 +45,16 @@
                                         style="width:60px; height:60px; object-fit:cover;">
                                 </td>
                                 <td class="py-3">{{ $course->title }}</td>
+                                <td class="py-3">
+                                    {{ $course->category?->name ?? '—' }}
+                                </td>
                                 <td class="py-3">{{ Str::limit($course->description, 50) }}</td>
                                 <td class="py-3">
                                     <div class="btn-group" role="group">
                                         <a href="{{ route('admin.courses.show', $course->id) }}" class="btn btn-outline-success btn-sm">View</a>
                                         <a href="{{ route('admin.courses.edit', $course->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                         <form action="{{ route('admin.courses.destroy', $course->id) }}" method="POST" class="d-inline">
+                                            @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                         </form>
